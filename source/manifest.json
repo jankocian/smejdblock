@@ -1,8 +1,8 @@
 {
-	"name": "Awesome Extension",
-	"version": "0.0.0",
-	"description": "An awesome new browser extension",
-	"homepage_url": "https://github.com/fregante/browser-extension-template",
+	"name": "ŠmejdBlock",
+	"version": "1.0.0",
+	"description": "Blokuje šmejdské webové stránky, které lživými taktikami prodávají nesmyslné produkty - neschválená léčiva, kosmetiku, psí krmení, ap.",
+	"homepage_url": "https://github.com/jankocian/smejdblock",
 	"manifest_version": 2,
 	"minimum_chrome_version": "80",
 	"applications": {
@@ -15,25 +15,28 @@
 		"128": "icon.png"
 	},
 	"permissions": [
-		"https://github.com/fregante/browser-extension-template/*",
-		"storage"
+		"https://raw.githubusercontent.com/jankocian/smejdb/*",
+		"storage",
+		"tabs"
 	],
 	"content_scripts": [
 		{
-			"matches": [ "https://github.com/fregante/browser-extension-template/*" ],
+			"matches": [ "*" ],
 			"js": [ "content.js" ],
 			"css": [ "content.css" ],
 			"run_at": "document_end"
 		}
 	],
 	"options_ui": {
-		"chrome_style": true,
+		"browser_style": false,
+		"chrome_style": false,
+		"open_in_tab": true,
 		"page": "options.html"
 	},
 	"background": {
-		"persistent": false,
 		"scripts": [
 			"background.js"
-		]
+		],
+		"persistent": false
 	}
 }
